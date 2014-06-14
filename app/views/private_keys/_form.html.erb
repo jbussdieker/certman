@@ -1,0 +1,25 @@
+<%= form_for(@private_key) do |f| %>
+  <% if @private_key.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@private_key.errors.count, "error") %> prohibited this private_key from being saved:</h2>
+
+      <ul>
+      <% @private_key.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :key_size %><br>
+    <%= f.number_field :key_size %>
+  </div>
+  <div class="field">
+    <%= f.label :encoded_key %><br>
+    <%= f.text_area :encoded_key %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

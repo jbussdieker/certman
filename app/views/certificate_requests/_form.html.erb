@@ -1,0 +1,25 @@
+<%= form_for(@certificate_request) do |f| %>
+  <% if @certificate_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@certificate_request.errors.count, "error") %> prohibited this certificate_request from being saved:</h2>
+
+      <ul>
+      <% @certificate_request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :encoded_request %><br>
+    <%= f.text_area :encoded_request %>
+  </div>
+  <div class="field">
+    <%= f.label :private_key_id %><br>
+    <%= f.number_field :private_key_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

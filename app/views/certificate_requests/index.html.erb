@@ -1,0 +1,27 @@
+<h1>Listing certificate_requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @certificate_requests.each do |certificate_request| %>
+      <tr>
+        <td><%= certificate_request.id %></td>
+        <td><%= link_to 'Show', certificate_request %></td>
+        <td><%= link_to 'Edit', edit_certificate_request_path(certificate_request) %></td>
+        <td><%= link_to 'Destroy', certificate_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Certificate request', new_certificate_request_path %>

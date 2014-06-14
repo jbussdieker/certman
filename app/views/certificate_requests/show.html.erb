@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Encoded request:</strong>
+  <pre><%= @certificate_request.encoded_request %></pre>
+</p>
+
+<p>
+  <strong>Private key:</strong>
+  <%= @certificate_request.private_key_id %>
+</p>
+
+<p>
+  <strong>Decoded request:</strong>
+  <pre><% @certificate_request.decoded_request.each_slice(16) do |s| %><% s.each do |item| %><%= item.to_s(16).rjust(2, '0') %> <% end %>
+<% end %></pre>
+</p>
+
+<%= link_to 'Edit', edit_certificate_request_path(@certificate_request) %> |
+<%= link_to 'Back', certificate_requests_path %>
