@@ -9,6 +9,18 @@ class CertificateRequest < ActiveRecord::Base
     OpenSSL::X509::Request.new(self.encoded_request)
   end
 
+  def subject
+    request.subject
+  end
+
+  def version
+    request.version
+  end
+
+  def attributes
+    request.attributes
+  end
+
   def decoded_request
     raw_base64 = request.to_s.split("\n")[1..-2].join("")
     raw = Base64.decode64(raw_base64)

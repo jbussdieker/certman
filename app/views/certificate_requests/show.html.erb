@@ -1,6 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Subject:</strong>
+  <%= @certificate_request.subject %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @certificate_request.version %>
+</p>
+
+<p>
+  <strong>Attributes:</strong>
+  <% @certificate_request.attributes.each do |attr| %>
+    <%= attr.oid %>=<%= attr.value %><br>
+    <% attr.value.each do |sv| %>
+      <%= sv %>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
   <strong>Encoded request:</strong>
   <pre><%= @certificate_request.encoded_request %></pre>
 </p>

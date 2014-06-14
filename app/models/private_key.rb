@@ -1,8 +1,15 @@
 class PrivateKey < ActiveRecord::Base
+  validates :encoded_key, uniqueness: true
+
   before_create do
     if self.encoded_key.empty?
       self.key_size ||= 4096
-      self.encoded_key = OpenSSL::PKey::RSA.new(key_size).to_s
+      begin
+        self.encoded_key = OpenSSL::PKey::RSA.new(key_size).to_s
+      rescue Exception => e
+        self.errors.add(:key_size, e.message)
+        return false
+      end
     else
       self.key_size = key.n.num_bytes * 8
     end
