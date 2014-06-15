@@ -1,68 +1,83 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Key size:</strong>
-  <%= @private_key.key_size %>
-</p>
-
-<p>
-  <strong>Encoded key:</strong>
-  <pre><%= @private_key.encoded_key %></pre>
-</p>
-
-<p>
-  <strong>Decoded key:</strong>
-  <pre><% @private_key.decoded_key.each_slice(16) do |s| %><% s.each do |item| %><%= item.to_s(16).rjust(2, '0') %> <% end %>
-<% end %></pre>
-</p>
-
-<p>
-  <strong>p:</strong>
-  <%= @private_key.key.p %>
-  <%= @private_key.key.p.to_s(16) %>
-</p>
-
-<p>
-  <strong>q:</strong>
-  <%= @private_key.key.q %>
-  <%= @private_key.key.q.to_s(16) %>
-</p>
-
-<p>
-  <strong>n:</strong>
-  <%= @private_key.key.n %>
-  <%= @private_key.key.n.to_s(16) %>
-</p>
-
-<p>
-  <strong>e:</strong>
-  <%= @private_key.key.e %>
-  <%= @private_key.key.e.to_s(16) %>
-</p>
-
-<p>
-  <strong>d:</strong>
-  <%= @private_key.key.d %>
-  <%= @private_key.key.d.to_s(16) %>
-</p>
-
-<p>
-  <strong>dmp1:</strong>
-  <%= @private_key.key.dmp1 %>
-  <%= @private_key.key.dmp1.to_s(16) %>
-</p>
-
-<p>
-  <strong>dmq1:</strong>
-  <%= @private_key.key.dmq1 %>
-  <%= @private_key.key.dmq1.to_s(16) %>
-</p>
-
-<p>
-  <strong>iqmp:</strong>
-  <%= @private_key.key.iqmp %>
-  <%= @private_key.key.iqmp.to_s(16) %>
-</p>
-
 <%= link_to 'Edit', edit_private_key_path(@private_key) %> |
 <%= link_to 'Back', private_keys_path %>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#info" data-toggle="tab">Info</a></li>
+  <li><a href="#details" data-toggle="tab">Details</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="info">
+    <p>
+      <p>
+        <strong>Key size:</strong>
+        <%= @private_key.key_size %>
+      </p>
+
+      <p>
+        <strong>Encoded key:</strong>
+        <pre><%= @private_key.encoded_key %></pre>
+      </p>
+    </p>
+  </div>
+
+  <div class="tab-pane" id="details">
+    <p>
+      <p>
+        <strong>p:</strong>
+        <%= @private_key.key.p %><br>
+        <%= @private_key.key.p.to_s(16) %>
+      </p>
+
+      <p>
+        <strong>q:</strong>
+        <%= @private_key.key.q %><br>
+        <%= @private_key.key.q.to_s(16) %>
+      </p>
+
+      <p>
+        <strong>n:</strong>
+        <%= @private_key.key.n %><br>
+        <%= @private_key.key.n.to_s(16) %>
+      </p>
+
+      <p>
+        <strong>e:</strong>
+        <%= @private_key.key.e %><br>
+        <%= @private_key.key.e.to_s(16) %>
+      </p>
+
+      <p>
+        <strong>d:</strong>
+        <%= @private_key.key.d %><br>
+        <%= @private_key.key.d.to_s(16) %>
+      </p>
+
+      <p>
+        <strong>dmp1:</strong>
+        <%= @private_key.key.dmp1 %><br>
+        <%= @private_key.key.dmp1.to_s(16) %>
+      </p>
+
+      <p>
+        <strong>dmq1:</strong>
+        <%= @private_key.key.dmq1 %><br>
+        <%= @private_key.key.dmq1.to_s(16) %>
+      </p>
+
+      <p>
+        <strong>iqmp:</strong>
+        <%= @private_key.key.iqmp %><br>
+        <%= @private_key.key.iqmp.to_s(16) %>
+      </p>
+
+      <p>
+        <strong>Decoded key:</strong>
+        <pre><% @private_key.decoded_key.each_slice(16) do |s| %><% s.each do |item| %><%= item.to_s(16).rjust(2, '0') %> <% end %>
+<% end %></pre>
+      </p>
+    </p>
+  </div>
+</div>

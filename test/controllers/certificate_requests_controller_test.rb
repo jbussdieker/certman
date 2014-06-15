@@ -18,7 +18,7 @@ class CertificateRequestsControllerTest < ActionController::TestCase
 
   test "should create certificate_request" do
     assert_difference('CertificateRequest.count') do
-      post :create, certificate_request: { encoded_request: @certificate_request.encoded_request, private_key_id: @certificate_request.private_key_id }
+      post :create, certificate_request: { encoded_request: @certificate_request.encoded_request, private_key_id: @certificate_request.private_key_id, subject: @certificate_request.subject }
     end
 
     assert_redirected_to certificate_request_path(assigns(:certificate_request))
@@ -35,7 +35,7 @@ class CertificateRequestsControllerTest < ActionController::TestCase
   end
 
   test "should update certificate_request" do
-    patch :update, id: @certificate_request, certificate_request: { encoded_request: @certificate_request.encoded_request, private_key_id: @certificate_request.private_key_id }
+    patch :update, id: @certificate_request, certificate_request: { encoded_request: @certificate_request.encoded_request, private_key_id: @certificate_request.private_key_id, subject: @certificate_request.subject }
     assert_redirected_to certificate_request_path(assigns(:certificate_request))
   end
 

@@ -13,6 +13,8 @@ class PrivateKey < ActiveRecord::Base
     else
       self.key_size = key.n.num_bytes * 8
     end
+
+    self.fingerprint = calculate_fingerprint
   end
 
   def key
@@ -23,5 +25,11 @@ class PrivateKey < ActiveRecord::Base
     raw_base64 = key.to_s.split("\n")[1..-2].join("")
     raw = Base64.decode64(raw_base64)
     raw.unpack("C*")
+  end
+
+  private
+
+  def calculate_fingerprint
+    Digest::MD5.hexdigest("Modulus=#{key.n.to_s(16)}\n")
   end
 end

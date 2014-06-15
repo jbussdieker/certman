@@ -8,9 +8,17 @@
 </head>
 <body>
 
-<%= link_to "Keys", private_keys_path %>
-<%= link_to "Requests", certificate_requests_path %>
-<%= yield %>
+<div class="container">
+  <div>
+    <%= link_to "Keys", private_keys_path %> | 
+    <%= link_to "Certificates", certificates_path %> | 
+    <%= link_to "Requests", certificate_requests_path %>
+  </div>
+
+  <div>
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>

@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  encoded_request: MyText
+  encoded_certificate: MyText
   subject: MyString
+  issuer: MyString
   private_key_id: 1
 
 two:
-  encoded_request: MyText
+  encoded_certificate: MyText
   subject: MyString
+  issuer: MyString
   private_key_id: 1

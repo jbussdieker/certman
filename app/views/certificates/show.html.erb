@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fingerprint:</strong>
+  <%= @certificate.fingerprint %>
+</p>
+
+<p>
+  <strong>Encoded certificate:</strong>
+  <%= @certificate.encoded_certificate %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @certificate.subject %>
+</p>
+
+<p>
+  <strong>Issuer:</strong>
+  <%= @certificate.issuer %>
+</p>
+
+<p>
+  <strong>Private key:</strong>
+  <%= @certificate.private_key_id %>
+</p>
+
+<%= link_to 'Edit', edit_certificate_path(@certificate) %> |
+<%= link_to 'Back', certificates_path %>

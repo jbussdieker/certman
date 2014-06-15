@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614002146) do
+ActiveRecord::Schema.define(version: 20140615022446) do
 
   create_table "certificate_requests", force: true do |t|
     t.text     "encoded_request"
+    t.string   "subject"
+    t.string   "fingerprint"
+    t.integer  "private_key_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "certificates", force: true do |t|
+    t.text     "encoded_certificate"
+    t.string   "subject"
+    t.string   "issuer"
+    t.string   "fingerprint"
     t.integer  "private_key_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -22,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140614002146) do
 
   create_table "private_keys", force: true do |t|
     t.integer  "key_size"
+    t.string   "fingerprint"
     t.text     "encoded_key"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -43,3 +43,4 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'rails-bootstrap', '~> 3.0.0'

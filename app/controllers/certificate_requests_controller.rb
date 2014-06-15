@@ -69,6 +69,6 @@ class CertificateRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def certificate_request_params
-      params.require(:certificate_request).permit(:encoded_request, :private_key_id)
+      params.require(:certificate_request).permit(:encoded_request, :subject, :private_key_id)
     end
 end

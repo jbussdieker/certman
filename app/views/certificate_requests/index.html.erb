@@ -1,9 +1,12 @@
-<h1>Listing certificate_requests</h1>
+<h1>Certificate Requests</h1>
 
-<table>
+<%= link_to 'New Certificate request', new_certificate_request_path %>
+
+<table class="table">
   <thead>
     <tr>
-      <th>ID</th>
+      <th>Fingerprint</th>
+      <th>Subject</th>
       <th></th>
       <th></th>
       <th></th>
@@ -13,7 +16,8 @@
   <tbody>
     <% @certificate_requests.each do |certificate_request| %>
       <tr>
-        <td><%= certificate_request.id %></td>
+        <td><%= certificate_request.fingerprint %></td>
+        <td><%= certificate_request.subject %></td>
         <td><%= link_to 'Show', certificate_request %></td>
         <td><%= link_to 'Edit', edit_certificate_request_path(certificate_request) %></td>
         <td><%= link_to 'Destroy', certificate_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -21,7 +25,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Certificate request', new_certificate_request_path %>

@@ -1,9 +1,11 @@
-<h1>Listing private_keys</h1>
+<h1>Private Keys</h1>
 
-<table>
+<%= link_to 'New Private key', new_private_key_path %>
+
+<table class="table">
   <thead>
     <tr>
-      <th>ID</th>
+      <th>Fingerprint</th>
       <th>Key size</th>
       <th></th>
       <th></th>
@@ -14,7 +16,7 @@
   <tbody>
     <% @private_keys.each do |private_key| %>
       <tr>
-        <td><%= private_key.id %></td>
+        <td><%= private_key.fingerprint %></td>
         <td><%= private_key.key_size %></td>
         <td><%= link_to 'Show', private_key %></td>
         <td><%= link_to 'Edit', edit_private_key_path(private_key) %></td>
@@ -23,7 +25,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Private key', new_private_key_path %>
